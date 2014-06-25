@@ -7,7 +7,7 @@
 - Node.JS + Node Package Manager [(Download here)](http://nodejs.org/)
 - Other requirements as described in the document on Teamwork
 
-### Setup
+### Steps
 1. Setup server system as described in the document provided on Teamwork
 2. Copy Nginx configuration from: `utils/planetserver.conf` to the respective location (e.g. `/etc/nginx/conf.d/`)
 3. Install node modules running the following commands in the main directory: `npm install -g grunt-cli && npm install`
