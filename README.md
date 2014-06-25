@@ -1,6 +1,6 @@
 # PlanetServer Neo Client
 
-## Development
+## Setup
 
 ### Requirements
 - Nginx Web Server [(Official Page)](http://nginx.org/)
@@ -18,8 +18,8 @@
 8. Collect static files running: `python manage.py collectstatic`
 9. Start Django server running: `python manage.py runserver`
 
-### During development
-When code changes are done it is currently necessary to re-run the steps `6.`-`8.`. The scripts will be minified. If you want to have unminified scripts for debugging change in `planet/settings.py` the `DEBUG` value to `True`. 
+## Development
+When code changes are done it is currently necessary to re-run the steps `6.`-`8.` of the setup. The scripts will be minified. If you want to have unminified scripts for debugging change in `planet/settings.py` the `DEBUG` value to `True`. 
 
 
 ## Contributors
