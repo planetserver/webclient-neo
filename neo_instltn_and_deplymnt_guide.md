@@ -94,8 +94,8 @@ SHA1: DF62DA8786E9563696D75583CBBE146BFC98577D
 
 
 
-@author: Leonardo Trovato
-@company: Software Engineering Italia – Swing:It
-@released: Jan 27, 2014
-@lastmodification: Jan 27, 2014
-@changelog: 1.0, first release.
+@author: Leonardo Trovato  
+@company: Software Engineering Italia – Swing:It  
+@released: Jan 27, 2014  
+@lastmodification: Jan 27, 2014  
+@changelog: 1.0, first release.  
