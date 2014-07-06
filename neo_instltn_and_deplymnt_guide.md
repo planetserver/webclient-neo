@@ -40,14 +40,15 @@ Configuration
 Copy Neo client file in a folder (for example /home/user/projects/neo) and change configuration in file settings.py.		
 
 DATABASES = {		
-*	'default': {		
-**		'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.	
-**	        'NAME': 'dbtesting',                      # Or path to database file if using sqlite3.	
-**	        'USER': 'test',      # The following settings are not used with sqlite3:	
-**	 	'PASSWORD': 'test',	
-**	        'PORT': '5432', # Set to empty string for default.		
-*	 }		
+  'default': {		
+    'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.	
+    'NAME': 'dbtesting',                      # Or path to database file if using sqlite3.	
+    'USER': 'test',      # The following settings are not used with sqlite3:	
+    'PASSWORD': 'test',	
+    'PORT': '5432', # Set to empty string for default.		
+  }		
 }	
+
 After changes, type in shell: python manage.py syncdb	
 After database synchronization, type: python manage.py runserver	
 Create user for testing	
