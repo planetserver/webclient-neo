@@ -36,26 +36,26 @@ Follow instructions on this link: https://docs.djangoproject.com/en/1.5/ref/cont
 ## Installing PostGIS
 PostGIS adds geographic object support to PostgreSQL, turning it into a spatial database. GEOS, PROJ.4 and GDAL should be installed prior to building PostGIS. (link: https://docs.djangoproject.com/en/1.5/ref/contrib/gis/install/postgis/)
 
-Configuration
+Configuration	
 Copy Neo client file in a folder (for example /home/user/projects/neo) and change configuration in file settings.py. 
-DATABASES = {
-    'default': {
-	'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dbtesting',                      # Or path to database file if using sqlite3.
-        'USER': 'test',      # The following settings are not used with sqlite3:
- 'PASSWORD': 'test',
-        'HOST': '127.0.0.1',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432', # Set to empty string for default.
-    }
-}
-After changes, type in shell: python manage.py syncdb
-After database synchronization, type: python manage.py runserver
-Create user for testing
+DATABASES = {	
+    'default': {	
+	'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.	
+        'NAME': 'dbtesting',                      # Or path to database file if using sqlite3.	
+        'USER': 'test',      # The following settings are not used with sqlite3:	
+ 	'PASSWORD': 'test',	
+        'HOST': '127.0.0.1',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.	
+        'PORT': '5432', # Set to empty string for default.	
+    }	
+}	
+After changes, type in shell: python manage.py syncdb	
+After database synchronization, type: python manage.py runserver	
+Create user for testing	
 Type in shell: python manage.py shell
-In python shell type the follow strings:
->>> from django.contrib.auth.models import User
->>> user = User.objects.create_user('test', ‘test@testing.com', 'test', first_name='Test', last_name='Test')
-Software installed on VM with CentOS 6.5.
+In python shell type the follow strings:	
+>>> from django.contrib.auth.models import User	
+>>> user = User.objects.create_user('test', ‘test@testing.com', 'test', first_name='Test', last_name='Test')	
+Software installed on VM with CentOS 6.5.	
 
 ## SVN Configuration and Neo code download
 Steps to download and run neo source code: 
@@ -71,22 +71,17 @@ Obviously to get source code you need an account on EarthServer SVN. If you did 
 
 ## Neo Development VM for VirtualBox
 If installing from scratch is boring, we already did it for you! Sorry for not saying that, before!
-You can now download a copy of this virtual machine at the following URL  http://www.faculty.jacobs-university.de/anrossi/shared/stefan/vmcentos6.5.rar
+You can now download a copy of this virtual machine at the following URL  http://www.faculty.jacobs-university.de/anrossi/shared/stefan/vmcentos6.5.rar	
 
-Here follows the list of predefined users:
-Username
-Password
-Group
-root
-earthserver
-root
-swingit
-swingit2013
-root, swingit
-earthserver
-earthserver
-earthserver
-Table 1 – System Account
+Here follows the list of predefined users:	
+
+| username      | password      | group      |
+| ------------- |:-------------:| ----------:|
+| root          | earthserver   | root       |
+| swingit      	| swingit2013   |root,swingit|
+| earthserver 	| earthserver   |earthserver |	
+
+Table 1 – System Account	
 The size of the NeoDevVM_CentOS_6_5.rar file is 2.xx Gbyte. Chech your downloaded file through these checksums:
 
 MD5: CEEE114878EE4C04FE0CAD138052C9F2
