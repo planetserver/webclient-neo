@@ -39,6 +39,7 @@ PostGIS adds geographic object support to PostgreSQL, turning it into a spatial 
 Configuration	
 Copy Neo client file in a folder (for example /home/user/projects/neo) and change configuration in file settings.py.		
 
+```
 DATABASES = {		
   'default': {		
     'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.	
@@ -48,25 +49,30 @@ DATABASES = {
     'PORT': '5432', # Set to empty string for default.		
   }		
 }	
+```
 
 After changes, type in shell: python manage.py syncdb	
 After database synchronization, type: python manage.py runserver	
 Create user for testing	
 Type in shell: python manage.py shell
 In python shell type the follow strings:	
+
+```
 from django.contrib.auth.models import User	
 user = User.objects.create_user('test', ‘test@testing.com', 'test', first_name='Test', last_name='Test')		
+```
+
 Software installed on VM with CentOS 6.5.	
 
 ## SVN Configuration and Neo code download
 Steps to download and run neo source code: 
 
 1. Create a folder where you want to deploy source code (i.e. /home/user/projects/svn)
-2. Type in shell: svn co http://www.earthserver.eu/svn/earthserver/src/WP260_Planetary-Service/neo --username <username> --password <password>
+2. Type in shell: `svn co http://www.earthserver.eu/svn/earthserver/src/WP260_Planetary-Service/neo --username <username> --password <password>`
 3. Waiting for source code download (it take a while).
-4. You could change settings in file planet/settings.py at the line “DATABASES” in according to your previous configuration. In general, you must have a database name, a username and password.
+4. You could change settings in file `planet/settings.py` at the line `DATABASES` in according to your previous configuration. In general, you must have a database name, a username and password.
 5. Enter neo directory (cd neo) and type in shell: python manage.py syncdb and after python manage.py runserver
-6. Open browser and type on url bar: 127.0.0.1:8000 and you should see an image like one below
+6. Open browser and type on url bar: `127.0.0.1:8000` and you should see an image like one below
 
 Obviously to get source code you need an account on EarthServer SVN. If you did not yet get it, please contact the planetserver-dev list (planetserver-dev@googlegroups.com).
 
