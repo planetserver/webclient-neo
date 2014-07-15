@@ -63,15 +63,3 @@ user = User.objects.create_user('test', ‘test@testing.com', 'test', first_name
 ```
 
 Software installed on VM with CentOS 6.5.	
-
-## SVN Configuration and Neo code download
-Steps to download and run neo source code: 
-
-1. Create a folder where you want to deploy source code (i.e. /home/user/projects/svn)
-2. Type in shell: `svn co http://www.earthserver.eu/svn/earthserver/src/WP260_Planetary-Service/neo --username <username> --password <password>`
-3. Waiting for source code download (it take a while).
-4. You could change settings in file `planet/settings.py` at the line `DATABASES` in according to your previous configuration. In general, you must have a database name, a username and password.
-5. Enter neo directory (cd neo) and type in shell: python manage.py syncdb and after python manage.py runserver
-6. Open browser and type on url bar: `127.0.0.1:8000` and you should see an image like one below
-
-Obviously to get source code you need an account on EarthServer SVN. If you did not yet get it, please contact the planetserver-dev list (planetserver-dev@googlegroups.com).
