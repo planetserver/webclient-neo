@@ -75,29 +75,3 @@ Steps to download and run neo source code:
 6. Open browser and type on url bar: `127.0.0.1:8000` and you should see an image like one below
 
 Obviously to get source code you need an account on EarthServer SVN. If you did not yet get it, please contact the planetserver-dev list (planetserver-dev@googlegroups.com).
-
-## Neo Development VM for VirtualBox
-If installing from scratch is boring, we already did it for you! Sorry for not saying that, before!
-You can now download a copy of this virtual machine at the following URL  http://www.faculty.jacobs-university.de/anrossi/shared/stefan/vmcentos6.5.rar	
-
-Here follows the list of predefined users:	
-
-| username      | password      | group      |
-| ------------- |:-------------:| ----------:|
-| root          | earthserver   | root       |
-| swingit      	| swingit2013   |root,swingit|
-| earthserver 	| earthserver   |earthserver |	
-
-Table 1 – System Account	
-The size of the NeoDevVM_CentOS_6_5.rar file is 2.xx Gbyte. Chech your downloaded file through these checksums:
-
-MD5: CEEE114878EE4C04FE0CAD138052C9F2
-SHA1: DF62DA8786E9563696D75583CBBE146BFC98577D
-
-
-
-@author: Leonardo Trovato  
-@company: Software Engineering Italia – Swing:It  
-@released: Jan 27, 2014  
-@lastmodification: Jan 27, 2014  
-@changelog: 1.0, first release.  
