@@ -323,6 +323,7 @@ Ext.onReady(function () {
 		winWebsearch.hide();
 		//Load region data
 		data = regions[region];
+
 		getODEfootprints('CRISM footprints', data.westernlon, data.easternlon, data.minlat, data.maxlat);
 
 		// WMS
