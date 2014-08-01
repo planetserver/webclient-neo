@@ -18,11 +18,11 @@ display: block;
 	/*height: 5%;*/
 	height: 45px;
 	/*min-height: 50px;*/
-	border: 0px solid #21416d;
+	border: 0px solid #0000FF;
 	float:top; 
 	display:block; 
-	background: #ffffff;
-	background-color: #9999ff;
+	background: #0000FF;
+	background-color: #0000FF;
 	z-index: 10; 
 }
 
@@ -49,7 +49,7 @@ display: block;
 	width: 100%;
 	height: auto;
 	/*min-height: 50px;*/
-	border: 0px solid #21416d;
+	border: 0px solid #0000FF;
 	float:top; 
 	display:block; 
 	background: #ffffff;
@@ -294,6 +294,71 @@ display: block;
 	border: 2px solid #21416d;
 }
 
+
+.menuBar {
+	color: white !important;
+	background: -webkit-linear-gradient(#0052AF, #143968) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0052AF, #143968) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0052AF, #143968) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0052AF, #143968) !important; /* Standard syntax (must be last) */
+}
+
+.whiteOnBlue {
+	color: white !important;
+	background: -webkit-linear-gradient(#0052AF, #143968) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0052AF, #143968) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0052AF, #143968) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0052AF, #143968) !important; /* Standard syntax (must be last) */
+}
+
+.x-window-ml,
+.x-window-mr,
+.x-window-tl,
+.x-window-bl,
+.x-window-tr,
+.x-window-br 
+{
+ 	color: white !important;
+	background: -webkit-linear-gradient(#0052AF, #143968) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0052AF, #143968) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0052AF, #143968) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0052AF, #143968) !important; /* Standard syntax (must be last) */
+}
+
+.x-panel-header-text-default,
+.x-panel-header-default,
+.x-panel-header-text
+{
+    color: white !important;
+	background: -webkit-linear-gradient(#0052AF, #143968) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0052AF, #143968) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0052AF, #143968) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0052AF, #143968) !important; /* Standard syntax (must be last) */
+}
+
+.x-panel-body {
+	color: white !important;
+}
+
+.x-btn-pressed,
+.x-btn-focus,
+.x-btn-inner,
+.x-btn-over {
+	color: white !important;
+	background: -webkit-linear-gradient(#0052AF, #143968) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0052AF, #143968) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0052AF, #143968) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0052AF, #143968) !important; /* Standard syntax (must be last) */
+}
+
+.x-msgbox {
+	background: -webkit-linear-gradient(#0052AF, #143968) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#0052AF, #143968) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#0052AF, #143968) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#0052AF, #143968) !important; /* Standard syntax (must be last) */
+ }
+
+
 /* Windows and toolbar images */
 
 .imgToc {
@@ -308,11 +373,14 @@ display: block;
 .imgX3D {
     background-image: url('/static/images/x3d_16px.png') !important;
 }
+.imgShowBandRatio {
+    background-image: url('/static/images/band-ratio-icon_16px.png') !important;
+}
 .imgTutorial {
-    background-image: url('/static/images/tutorial_16px.png') !important;
+    background-image: url('/static/images/tutorial_off.png') !important;
 }
 .imgAbout {
-    background-image: url('/static/images/about_16px.png') !important;
+    background-image: url('/static/images/about_off.png') !important;
 }
 .linkEarthserver {
     background-image: url('/static/images/tutorial_16px.png') !important;

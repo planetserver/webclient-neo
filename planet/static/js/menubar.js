@@ -1,14 +1,35 @@
 Ext.onReady(function () {
 
 	Ext.QuickTips.init();
+	
+	Ext.create('Ext.toolbar.Toolbar', {
+		renderTo: 'div_topImageBlock',
+        width: '100%',
+		height: 70,
+		//overflowX: 'auto',
+		frame : false,
+		border : false,
+		style:{
+		 	'background':'white'
+		},
+		items: [
+			logoEarthServer,
+			logoJacobs,
+			logoMars,
+			logoESS
+		],
+	})
 
 	Ext.create('Ext.toolbar.Toolbar', {
 		renderTo: 'div_topBlock',
         width: '100%',
+        cls: 'whiteOnBlue',
 		height: 52,
+		frame : false,
+		border : false,
 		overflowX: 'auto',
 		items: [
-			logoPlanetServer,
+			//logoPlanetServer,
 			//comboBoxRegion,
 			'-',
 			showWebSearchWindow,
@@ -39,19 +60,48 @@ Ext.onReady(function () {
 			actionShowTutorial,
 			actionShowAbout,
 			//buttonReset,
-			'-',
-			{ xtype: 'tbfill', },
-			'-',
-			saveGeom,
-			loadGeom,
-			clearAllGeom,
-			'-',
-			showLoginForm,
-			'-',
-			logoEarthServer
+			// '-',
+			// { xtype: 'tbfill', },
+			// '-',
+			// saveGeom,
+			// loadGeom,
+			// clearAllGeom,
+			// '-',
+			// showLoginForm,
+			// '-',
+			// logoEarthServer
 		],
 	})
 });//onReady
+
+var logoEarthServer = {
+	xtype: 'box',
+	//width: 70,
+	height: 70,
+	//autoEl: {tag: 'img', src:'../static/images/partOfEarthServer_32px.png'}
+	autoEl: {tag: 'img', src:'../static/images/vector-logo-earthserver_with-text_RGB_70px-high.png'}
+};
+
+var logoJacobs = {
+	xtype: 'box',
+	//width: 147,
+	height: 70,
+	autoEl: {tag: 'img', src:'../static/images/jacobs_70px-high_logo.png'}
+};
+
+var logoMars = {
+	xtype: 'box',
+	//width: 147,
+	height: 70,
+	autoEl: {tag: 'img', src:'../static/images/mars70.png'}
+};
+
+var logoESS = {
+	xtype: 'box',
+	//width: 147,
+	height: 70,
+	autoEl: {tag: 'img', src:'../static/images/ess-logo_v1.2_70px.png'}
+};
 
 // Define the model for the Region
 Ext.define('regionComboModel', {
@@ -82,11 +132,15 @@ var regionStore = Ext.create('Ext.data.Store', {
 var comboBoxRegion = Ext.create('Ext.form.field.ComboBox', {
 	id: 'comboBoxRegionId',
 	fieldLabel: 'Region:',
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	labelWidth: 40,
-    	store: regionStore,
-    	queryMode: 'local',
-    	displayField: 'name',
-    	valueField: 'val',
+    store: regionStore,
+    queryMode: 'local',
+    displayField: 'name',
+    valueField: 'val',
 	editable: false,
 	listeners: {
 		'select' : function (combo, value) {
@@ -126,11 +180,15 @@ var comboBoxDtm = Ext.create('Ext.form.field.ComboBox', {
 	id: 'comboBoxDtmId',
 	fieldLabel: 'DTM:',
 	labelWidth: 30,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',	
 	//width: 150,
-    	store: dtmStore,
-    	queryMode: 'local',
-    	displayField: 'name',
-    	valueField: 'val',
+    store: dtmStore,
+    queryMode: 'local',
+    displayField: 'name',
+    valueField: 'val',
 	editable: false,
 	value: 'MOLA',
 	listeners: {
@@ -146,17 +204,24 @@ var comboBoxDtm = Ext.create('Ext.form.field.ComboBox', {
 	}
 });//comboBoxDtm
 
+
 //************** List of Buttons ***************//
 // buttonSelect
 var buttonSelect = Ext.create('Ext.button.Button', {
 	inputId: 'buttonSelectId',
 	iconCls: 'imgToolBarButtonSelect',
 	scale: 'medium',
-	tooltip: { text: 'Select footprint', },
+	tooltip: { 
+		text: 'Select footprint'
+	},
 	toggleGroup: 'controls',
 	enableToggle: true,
 	pressed: true, // this is default
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			if(!(typeof highlightCtrl === "undefined")) {
@@ -183,6 +248,10 @@ var buttonSpectrum = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			if(hsdataset.productid != '') {
@@ -208,6 +277,12 @@ var buttonSpectralRatio = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	frame : false,
+	border : false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			if(hsdataset.productid != '') {
@@ -225,11 +300,23 @@ var buttonSpectralRatio = Ext.create('Ext.button.Button', {
 	}
 });//buttonSpectralRatio
 
+
+
 // buttonCrossSection
 var buttonCrossSection = Ext.create('Ext.button.Button', {
 	iconCls: 'imgToolBarButtonCrossSection',
 	scale: 'medium',
-	tooltip: { text: 'Cross Section', },
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
+	tooltip: { 
+		text: 'Cross Section',
+		bodyStyle: {
+		    background: '#ffc',
+		    padding: '10px'
+		}		
+	},
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
@@ -262,6 +349,10 @@ var buttonElevationPoint = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			queryEventHandler4.activate();
@@ -282,6 +373,10 @@ var buttonZoomInBox = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			zoomBoxIn.activate();
@@ -301,6 +396,10 @@ var buttonZoomOutBox = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			zoomBoxOut.activate();
@@ -321,6 +420,10 @@ var buttonDragMap = Ext.create('Ext.button.Button', {
 	enableToggle: true,
 	//pressed: true, // this is default
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			dragControls['dragger'].activate();
@@ -337,6 +440,10 @@ var buttonFullScale = Ext.create('Ext.button.Button', {
 	iconCls: 'imgToolBarButtonFullScale',
 	scale: 'medium',
 	tooltip: { text: 'Full Scale', },
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	listeners: {
 		click: function() {
 			mapZoomMaximum(); // call function for maximum zoom in planet.events.js
@@ -349,6 +456,10 @@ var buttonViewHistoryBackward = Ext.create('Ext.button.Button', {
 	iconCls: 'imgToolBarButtonViewHistoryBackward',
 	scale: 'medium',
 	tooltip: { text: 'View History Backward', },
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	listeners: {
 		click: function() {
 			navHistory.previousTrigger();
@@ -361,6 +472,10 @@ var buttonViewHistoryForward = Ext.create('Ext.button.Button', {
 	iconCls: 'imgToolBarButtonViewHistoryForward',
 	scale: 'medium',
 	tooltip: { text: 'View History Forward', },
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	listeners: {
 		click: function() {
 			navHistory.nextTrigger();
@@ -376,6 +491,10 @@ var buttonMeasureDistance = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			measureControls['line'].activate();
@@ -396,6 +515,10 @@ var buttonMeasureArea = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			measureControls['polygon'].activate();
@@ -416,6 +539,10 @@ var buttonOleEditor = Ext.create('Ext.button.Button', {
 	toggleGroup: 'controls',
 	enableToggle: true,
 	allowDepress: false,
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	toggleHandler: function(toggled) {
 		if(toggled.pressed) {
 			map.editor.startEditMode();
@@ -444,6 +571,10 @@ var showWebSearchWindow = Ext.create('Ext.Action', {
 		text:'Show/hide the Search window',
 		title:'Search window'
 	},
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	handler: function() {
 		if (winWebsearch.isVisible()) {
 			winWebsearch.hide();
@@ -453,14 +584,24 @@ var showWebSearchWindow = Ext.create('Ext.Action', {
 	}
 });
 
+var tocTooltip = Ext.create('Ext.tip.ToolTip', {
+    target : 'tocId',
+    html : "hello tooltip"
+});
+
 var actionShowToc = Ext.create('Ext.Action', {
 	text: 'TOC',
 	iconCls: 'imgToc',
 	//autoEl: {tag: 'img', src:'../static/images/toc_off.png'},
-	tooltip: {
-		text:'Show/hide the table of content window', 
-		title:'Table of content'
-	},
+	tooltip: tocTooltip,
+	// {
+	// 	text:'Show/hide the table of content window', 
+	// 	title:'Table of content'
+	// },
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	handler: function(){
 		//toggleDisplay('toc');
 		if (winToc.isVisible()) {
@@ -490,7 +631,11 @@ var actionShowConsole = Ext.create('Ext.Action', {
 	tooltip: {
 		text:'Show/hide the console window', 
 		title:'Console window'
-		},
+	},
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',
 	handler: function(){
 		//toggleDisplay('query');
 		if (hsdataset.productid != '') {
@@ -512,7 +657,11 @@ var actionShowDiagram = Ext.create('Ext.Action', {
 	tooltip: {
 		text:'Show/hide the diagrams window', 
 		title:'Diagrams window'
-		},
+	},
+	cls : 'topBlockButton',
+	focusCls : 'topBlockButton',
+	overCls : 'topBlockButton',
+	pressedCls : 'topBlockButton',	
 	handler: function(){
 		//toggleDisplay('spectra');
 		if (winDiagrams.isVisible()) {
@@ -530,13 +679,17 @@ var actionShowX3D = Ext.create('Ext.button.Button', {
 		title:'X3D window',
 		text:'Show the X3D window',
 	},
+	cls : 'whiteOnBlue',
+	focusCls : 'whiteOnBlue',
+	overCls : 'whiteOnBlue',
+	pressedCls : 'whiteOnBlue',	
 	listeners: {
 		click: function() {
 			if(hsdataset.productid != '') {
 				winX3D.show();
 				winX3D.center();
-			} else
-				Ext.Msg.alert('Information', "Please, before select a region and a footprint!");
+			} else 
+				Ext.Msg.alert('Information', 'Please, before select a region and a footprint!');
 		},
 	},
 });
@@ -544,17 +697,21 @@ var actionShowX3D = Ext.create('Ext.button.Button', {
 
 var actionShowBandRatio = Ext.create('Ext.button.Button', {
 	text: 'Band Ratio',
-	iconCls: 'imgX3D',
+	iconCls: 'imgShowBandRatio',
 	tooltip: {
 		title:'Band Ratio window',
 		text:'Show the Band Ratio window',
 	},
+	// cls : 'whiteOnBlue',
+	// focusCls : 'whiteOnBlue',
+	// overCls : 'whiteOnBlue',
+	// pressedCls : 'whiteOnBlue',	
 	listeners: {
 		click: function() {
 			if(hsdataset.productid != '') {
 				winBandRatio.show();
 				winBandRatio.center();
-			} else
+			} else 
 				Ext.Msg.alert('Information', "Please, before select a region and a footprint!");
 		},
 	},
@@ -578,11 +735,16 @@ var actionShowBandRatio = Ext.create('Ext.button.Button', {
 
 var actionShowTutorial = Ext.create('Ext.button.Button', {
 	text: 'Tutorial',
+	color: 'white',
 	iconCls: 'imgTutorial',
 	tooltip: {
 		text:'Visit tutorial page', 
 		title:'Tutorial page'
 	},
+	cls : 'whiteOnBlue',
+	focusCls : 'whiteOnBlue',
+	overCls : 'whiteOnBlue',
+	pressedCls : 'whiteOnBlue',	
 	href: 'http://blog.planetserver.eu/?tag=tutorial',
 	hrefTarget: '_blank',
 });
@@ -593,7 +755,11 @@ var actionShowAbout = Ext.create('Ext.Action', {
 	tooltip: {
 		text:'Show/hide the about window', 
 		title:'About window'
-		},
+	},
+	cls : 'whiteOnBlue',
+	focusCls : 'whiteOnBlue',
+	overCls : 'whiteOnBlue',
+	pressedCls : 'whiteOnBlue',	
 	handler: function(){		
 		//toggleDisplay('about');
 		if (winAbout.isVisible()) {
@@ -613,6 +779,9 @@ var saveGeom = Ext.create('Ext.button.Button', {
 		text: 'Save geometric objects drawn on the map in database',
 	},
 	disabled: true,
+	style: {
+		'background':'#151B8D',
+	},
 	listeners: {
 		click: function() {
 			if(vectorDraw.features.length > 0)
@@ -669,6 +838,9 @@ var clearAllGeom = Ext.create('Ext.button.Button', {
 		title:'Clear All',
 		text:'Delete all geometric objects from database',
 	},
+	style: {
+		'background':'#151B8D'
+	},
 	disabled: true,
 	listeners: {
 		click: function(){
@@ -723,6 +895,9 @@ var loadGeom = Ext.create('Ext.button.Button', {
 		title:'Load',
 		text:'Load all geometric objects from database',
 	},
+	style: {
+		'background':'#151B8D'
+	},
 	id: 'loadGeomButton',
 	disabled: true,
 	listeners: {
@@ -759,6 +934,9 @@ var showLoginForm = Ext.create('Ext.button.Button', {
 	tooltip: {
 		text:'Show/hide the login window',
 		title:'Login window',
+	},
+	style: {
+		'background':'#151B8D'
 	},
 	listeners: {
 		click: function(){
@@ -807,13 +985,6 @@ var showLoginForm = Ext.create('Ext.button.Button', {
 		},
 	},
 });
-
-var logoEarthServer = {
-	xtype: 'box',
-	width: 147,
-	height: 32,
-	autoEl: {tag: 'img', src:'../static/images/partOfEarthServer_32px.png'}
-};
 
 //**************************************	FUNCTIONS	************************************//	
 

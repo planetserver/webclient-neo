@@ -11,14 +11,16 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+POSTGIS_VERSION = (2, 0, 3)
+
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-	'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'geodb',                      # Or path to database file if using sqlite3.
-        'USER': 'geodjango',      # The following settings are not used with sqlite3:
-        'PASSWORD': 'geodjango',
+    'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'postgres',                      # Or path to database file if using sqlite3.
+        'USER': 'postgres',      # The following settings are not used with sqlite3:
+        'PASSWORD': 'postgres',
         'HOST': '127.0.0.1', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432', # Set to empty string for default.
     }
@@ -76,7 +78,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 
-	PROJECT_PATH + 'static',
+    PROJECT_PATH + 'static',
 )
 
 # List of finder classes that know how to find static files in
@@ -116,7 +118,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	PROJECT_PATH + "templates",
+    PROJECT_PATH + "templates",
 )
 
 INSTALLED_APPS = (

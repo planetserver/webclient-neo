@@ -71,8 +71,7 @@ Ext.onReady(function () {
 		height: 460,
 		margin: 0,
 		autoScroll: true,
-		bodyStyle:{"background-color":"#dfe8f6"},
-            	items: [thumbnailsView]
+        items: [thumbnailsView]
 	});
 
 	//**********************	TOP PANEL - END		****************************************************
@@ -159,7 +158,6 @@ Ext.onReady(function () {
 		defaults: {bodyStyle: 'padding: 2px 2px 2px 2px;'},
 		padding: 10,
 		//border: 0,
-		bodyStyle: 'background: transparent;',
 		items:[
 			{
 			//title: 'Top',        
@@ -183,7 +181,7 @@ Ext.onReady(function () {
 				align: 'middle'
 			},
 			//border: 0,
-			bodyStyle: 'background: transparent; border:0',
+			bodyStyle: 'border:0',
 			items: [textLeft, spacerItem, textRight]
 			},{
 			//title:'Bottom',        
@@ -195,7 +193,7 @@ Ext.onReady(function () {
 			},
 			defaults: {margins:'0 5 0 0'},
 			//border: 0,
-			bodyStyle: 'background: transparent; border:0',
+			bodyStyle: 'border:0',
 			items: [textBottom]
 			}
 		]
@@ -216,7 +214,7 @@ Ext.onReady(function () {
 		align: 'center'
 	},
 	//border: 0,
-	bodyStyle: 'background: transparent; border:0',
+	bodyStyle: 'border:0',
 	items: [spacerItem, showButton, spacerItem, drawRectButton, spacerItem]
 	});
 

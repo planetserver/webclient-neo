@@ -82,6 +82,8 @@ function initmap() {
 		// show coordinate (longitude, latitude) on ExtJS textArea (statusbar.js)
 		var lon = hsdataset.lonlat.lon;
 		var lat = hsdataset.lonlat.lat;
+		window.location.hash = "#lan=" + lat + "lon=" + lon;
+		//window.location.href = "http://stackoverflow.com";
 		//Ext.getCmp('textAreaCoordLonLat').setValue('Coord '+lon.toFixed(5) + ', ' + lat.toFixed(5));
 		Ext.getCmp('labelShowCoord').setText('Coord '+lon.toFixed(5) + ', ' + lat.toFixed(5));
 

@@ -14,7 +14,6 @@ Ext.onReady(function(){
 		//title: 'Planet server',
 		//layout: 'hbox',
 		//frame: false,
-		bodyStyle: 'background:transparent;',
 		border: 0,
 		x: 250,
 		y: 50,
@@ -46,6 +45,8 @@ Ext.onReady(function(){
 		width: 675,
 		layout: 'fit',
 		resizable: false,
+		cls : 'whiteOnBlue',
+		componentCls : 'whiteOnBlue',
 		items: [{
 			region: 'center',
 			xtype: 'tabpanel', // important bit. xtype defines the type of container object we are using. In this case it tabpanel
