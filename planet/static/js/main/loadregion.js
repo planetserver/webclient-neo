@@ -2,6 +2,8 @@ var footprints;
 var highlightCtrl;
 var selectCtrl;
 var curiosity;
+var loadingproduct = false;
+var loadedproduct = false;
 //var GaleHRSCWms;
 //var GaleCTXWms;
 
@@ -57,6 +59,7 @@ function dtm_load()
 
 function loadmrdr(productid)
     {
+    loadingproduct = true;
     data = mrdr[productid];
     getODEfootprints('CRISM footprints',data.westernlon,data.easternlon,data.minlat,data.maxlat);
     
@@ -69,6 +72,7 @@ function loadmrdr(productid)
     WMSlayers[0] = temp;
     map.addLayers([footprints]);
     map.zoomToExtent(footprints.getDataExtent());
+    loadingproduct = false;
     }
     
 function initloadregion()

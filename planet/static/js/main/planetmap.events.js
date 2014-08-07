@@ -98,16 +98,12 @@ function setUrlParamsFromPixel(pixel)
         urlparams['lat'] = lonlat.lat;
         urlparams['lon'] = lonlat.lon;
         var region = getRegion(lonlat);
-        if (region != null) 
-            {
-            urlparams['region'] = region;
-            }
+        urlparams['region'] = region;
         var productid = getProduct(lonlat);
-        if (productid != null) {
-            urlparams['productid'] = productid;
-        }
+        urlparams['productid'] = productid;
     }
 
+function isZoomEvent() {}
 function initmapevents() {
     map.events.register("mousemove", map, function(e)
         {
@@ -122,9 +118,31 @@ function initmapevents() {
 
     map.events.register("move", map, function(e)
         {
-        map.zoomIn();
-        urlparams['zoomlevel'] = map.getZoom();
-        setUrlHash();
+        // move occurs on zoom, pan and drag. Filter zoom.
+        var currentzoom = map.getZoom();
+        if (currentzoom != urlparams['zoomlevel']) 
+            {
+            urlparams['zoomlevel'] = currentzoom; 
+            var prevproductid = urlparams['productid'];
+            // check loadmrdr() for @loadingproduct
+            if (!loadingproduct && prevproductid != "")
+                {
+                var currproductid = getProduct(new OpenLayers.LonLat(urlparams['lon'], urlparams['lat']));
+                if (!loadedproduct || currproductid != prevproductid)
+                    {
+                    loadmrdr(currproductid);    
+                    loadedproduct = true;
+                    }
+                else 
+                    {
+                        setUrlHash();
+                    }
+                }
+            else 
+                {
+                setUrlHash();
+                }
+            }
         });
    
 	map.addControl(zoomBoxIn);

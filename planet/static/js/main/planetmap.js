@@ -85,7 +85,7 @@ function getRegion(lonlat)
                 return region;
             }
         }
-        return null;
+        return "";
     }
 
 function getProduct(lonlat) 
@@ -97,13 +97,15 @@ function getProduct(lonlat)
                 return productid;
             }
         }
-        return null;
+        return "";
     }
 
 function initmap() {
 	map = new OpenLayers.Map( 'map' , {
 		controls: [
-    			new OpenLayers.Control.Navigation(),
+    			new OpenLayers.Control.Navigation({
+   		 			defaultDblClick: function(event) { return; }
+				}),
                 new OpenLayers.Control.PanZoomBar(),
                     	//new OpenLayers.Control.LayerSwitcher({'ascending':false}),
                     	//new OpenLayers.Control.Permalink(),
