@@ -3,7 +3,7 @@
 ## Setup
 
 ### Requirements
-- Nginx Web Server [(Official Page)](http://nginx.org/)
+- Nginx Web Server [(Official Page)](http://nginx.org/) . On CentOS 7, it might be handy to install nginx from source.
 - Node.JS + Node Package Manager [(Download here)](http://nodejs.org/)
 - Other requirements as described in the document on Teamwork
 
