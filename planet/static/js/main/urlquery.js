@@ -58,3 +58,18 @@ function checkmrdr()
             }
         }
     }
+
+function checklonlat() 
+    {
+    if (typeof(QueryString.lat) != "undefined" && typeof(QueryString.lon) != "undefined") 
+        {
+            if (typeof(QueryString.zoomlevel) != "undefined") 
+            {
+                map.setCenter(new OpenLayers.LonLat(QueryString.lon, QueryString.lat), QueryString.zoomlevel);
+
+            } else 
+            {
+                map.setCenter(new OpenLayers.LonLat(QueryString.lon, QueryString.lat));
+            }
+        }
+    }

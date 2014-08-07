@@ -536,3 +536,9 @@ var usedCrism = 0;	// 0 = IR; 1 = VNIR
 var footprints;
 var curiosity;
 
+var urlparams = new Object();
+urlparams["region"] = "";
+urlparams["productid"] = "";
+urlparams["lat"] = "";
+urlparams["lon"] = "";
+urlparams["zoomlevel"] = 3;

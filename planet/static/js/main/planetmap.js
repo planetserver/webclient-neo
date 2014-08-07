@@ -31,11 +31,80 @@ OpenLayers.Feature.Vector.style['default']['strokeWidth'] = '2';
 var maxextent = new OpenLayers.Bounds(-180,-90,180,90);
 //
 
+function createParam(key) 
+    {
+        var value = urlparams[key];
+        return key + "=" + value;
+    } 
+
+ function setUrlHash() 
+    {
+        var hashvalue = createParam('region');
+        hashvalue += "&" + createParam("productid");
+        hashvalue += "&" + createParam('lat');
+        hashvalue += "&" + createParam('lon');
+        hashvalue += "&" + createParam('zoomlevel');
+        location.hash = hashvalue;
+    }
+
+function showAvailableFootprints(westernlon, easternlon, minlat, maxlat)
+    {
+        getODEfootprints('CRISM footprints',westernlon,easternlon,minlat,maxlat);
+        map.addLayers([footprints]);
+        map.zoomToExtent(footprints.getDataExtent());
+    }
+
+
+function liesInArea(jsonobj, lonlat) 
+    {
+        if (lonlat.lon >= jsonobj['westernlon'])
+            if (lonlat.lon <= jsonobj['easternlon'])
+                if (lonlat.lat >= jsonobj['minlat'])
+                    if (lonlat.lat <= jsonobj['maxlat']) 
+                        return true;
+        return false;
+
+    }
+
+function liesInRegion(region, lonlat) 
+    {
+        return liesInArea(regions[region], lonlat);
+    }
+
+function liesInProduct(productid, lonlat) 
+{
+    return liesInArea(mrdr[productid], lonlat);
+}
+
+function getRegion(lonlat) 
+    {
+        for (region in regions)
+        {
+            if (liesInRegion(region, lonlat)) 
+            {
+                return region;
+            }
+        }
+        return null;
+    }
+
+function getProduct(lonlat) 
+    {
+        for (productid in mrdr) 
+        {
+            if (liesInProduct(productid, lonlat))
+            {
+                return productid;
+            }
+        }
+        return null;
+    }
+
 function initmap() {
 	map = new OpenLayers.Map( 'map' , {
 		controls: [
     			new OpenLayers.Control.Navigation(),
-                    	new OpenLayers.Control.PanZoomBar(),
+                new OpenLayers.Control.PanZoomBar(),
                     	//new OpenLayers.Control.LayerSwitcher({'ascending':false}),
                     	//new OpenLayers.Control.Permalink(),
                     	//new OpenLayers.Control.ScaleLine(),

@@ -19,4 +19,5 @@ jQuery(document).ready(function(){
 	checksinglecollection(); //urlquery.js
 	checkregion(); //urlquery.js
 	checkmrdr(); //urlquery.js
+	checklonlat(); //urlquery.js 
 });
