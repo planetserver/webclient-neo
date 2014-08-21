@@ -51,7 +51,9 @@ function showAvailableFootprints(westernlon, easternlon, minlat, maxlat)
     {
         getODEfootprints('CRISM footprints',westernlon,easternlon,minlat,maxlat);
         map.addLayers([footprints]);
+        iscodezoomevent = true;
         map.zoomToExtent(footprints.getDataExtent());
+        iscodezoomevent = false;
     }
 
 
@@ -103,9 +105,8 @@ function getProduct(lonlat)
 function initmap() {
 	map = new OpenLayers.Map( 'map' , {
 		controls: [
-    			new OpenLayers.Control.Navigation({
-   		 			defaultDblClick: function(event) { return; }
-				}),
+    			new OpenLayers.Control.Navigation(),
+				//new OpenLayers.Control.LoadingPanel(),
                 new OpenLayers.Control.PanZoomBar(),
                     	//new OpenLayers.Control.LayerSwitcher({'ascending':false}),
                     	//new OpenLayers.Control.Permalink(),

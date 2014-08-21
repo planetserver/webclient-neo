@@ -97,13 +97,24 @@ function setUrlParamsFromPixel(pixel)
         lonlat = map.getLonLatFromPixel(pixel);
         urlparams['lat'] = lonlat.lat;
         urlparams['lon'] = lonlat.lon;
-        var region = getRegion(lonlat);
-        urlparams['region'] = region;
-        var productid = getProduct(lonlat);
-        urlparams['productid'] = productid;
+        urlparams['region'] = getRegion(lonlat);
+        urlparams['productid'] = getProduct(lonlat);
     }
 
-function isZoomEvent() {}
+function isZoomEvent() 
+    {
+    return (map.getZoom() != urlparams['zoomlevel']);
+    }
+
+function showFootprintsOnZoom()
+    {
+    if (map.getZoom() == 5 || map.getZoom() == 6) 
+        {
+        var bounds = map.getExtent();
+        showAvailableFootprints(bounds.centerLonLat.lon-5,bounds.centerLonLat.lon+5,bounds.centerLonLat.lat-5,bounds.centerLonLat.lon+5);
+        }
+    }
+
 function initmapevents() {
     map.events.register("mousemove", map, function(e)
         {
@@ -119,27 +130,24 @@ function initmapevents() {
     map.events.register("move", map, function(e)
         {
         // move occurs on zoom, pan and drag. Filter zoom.
-        var currentzoom = map.getZoom();
-        if (currentzoom != urlparams['zoomlevel']) 
+        if (isZoomEvent()) 
             {
-            urlparams['zoomlevel'] = currentzoom; 
-            var prevproductid = urlparams['productid'];
-            // check loadmrdr() for @loadingproduct
-            if (!loadingproduct && prevproductid != "")
+            urlparams['zoomlevel'] = map.getZoom(); 
+            var productid = urlparams['productid'];
+            if (productid != "")
                 {
-                var currproductid = getProduct(new OpenLayers.LonLat(urlparams['lon'], urlparams['lat']));
-                if (!loadedproduct || currproductid != prevproductid)
+                if (!iscodezoomevent)
                     {
-                    loadmrdr(currproductid);    
-                    loadedproduct = true;
-                    }
-                else 
-                    {
-                        setUrlHash();
+                    loadmrdr(productid);    
                     }
                 }
             else 
                 {
+                // ignore zoom events that do not come directly from the browser
+                if (!iscodezoomevent)
+                    {
+                    showFootprintsOnZoom();
+                    }
                 setUrlHash();
                 }
             }
