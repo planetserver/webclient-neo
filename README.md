@@ -8,7 +8,7 @@
 - Other requirements as described in the [(installation guide)](https://github.com/planetserver/webclient-neo/blob/master/InstallationGuide.md).
 
 ### Steps
-1. Setup server system as described in the document provided on Teamwork
+1. Setup server system (Rasdaman)
 2. Copy Nginx configuration from: [`utils/planetserver.conf`](utils/planetserver.conf) to the respective location (e.g. `/etc/nginx/conf.d/`)
 3. Install node modules running the following commands in the main directory: `npm install -g grunt-cli && npm install`
 4. Create the directory: `/data/planetserver/static` (*)
