@@ -28,5 +28,6 @@ When code changes are done it is currently necessary to re-run the steps `6.`-`8
 
 Neo is based on the Classic client with some extended functionalities. It was initially developed within the EarhtServer project though a contract with *Software Engineering Italia*
 
-Dominik Kundel - [dominik.kundel@gmail.com](mailto:dominik.kundel@gmail.com)
+Dominik Kundel - [dominik.kundel@gmail.com](mailto:dominik.kundel@gmail.com), 
+
 Valentine Chiwome
